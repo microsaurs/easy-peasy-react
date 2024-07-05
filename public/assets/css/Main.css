@@ -1,126 +1,209 @@
 @import url("font.css");
 
-.main-component {
-  margin: 100px auto;
-  width: 800px;
+* {
+	font-family: "NanumSquareNeo";
+	box-sizing: border-box;
+	/* 글자 드래그 방지 */
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
 }
 
-/* 로고 + 프로젝트명 */
-.title {
-  font-family: "NanumSquareNeoExtra";
-  text-align: center;
-  margin: auto;
-  position: relative;
-  width: 250px;
-}
-
-/* 로고 */
+/* Logo */
+/* 로고 박스 */
 .logo {
-  width: 40px;
-  position: absolute;
-  top: -15px;
-  left: 10px;
+	text-align: center;
+	position: relative;
+	margin-top: 2vw;
+	margin-left: 2vw;
+	width: 12vw;
 }
 
-/* 한제 */
-.title div:nth-child(2) {
-  font-size: 40px;
+/* 로고 이미지 */
+.logo img {
+	width: 3vw;
+	position: absolute;
+	top: -1vw;
+	left: -1.5vw;
 }
 
-/* 영제 */
-.title div:last-child {
-  font-size: 30px;
+/* 프젝명 - 한 */
+.logo div:nth-child(2) {
+	font-family: "NanumSquareNeoExtra";
+	font-size: 2.5vw;
 }
 
-/* 설명 */
+/* 프젝명 - 영 */
+.logo div:last-child {
+	font-family: "NanumSquareNeoBold";
+	font-size: 2vw;
+}
+
+/* Main */
+/* 첫화면 */
+.main-component {
+	margin: auto;
+}
+
+/* 첫화면 로고 위치 및 사이즈 조정 */
+.main-component .logo {
+	margin: 10vw auto auto auto;
+	width: 20vw;
+}
+.main-component .logo img {
+	width: 3.5vw;
+	top: -1vw;
+	left: 1vw;
+}
+.main-component .logo div:nth-child(2) {
+	font-size: 3vw;
+}
+.main-component .logo div:last-child {
+	font-size: 2.5vw;
+}
 .description {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 30px auto;
-  text-align: center;
-  width: 500px;
+	font-size: 2vw;
+	margin: 3vw auto;
+	text-align: center;
+	width: 50vw;
 }
 
 /* 세상 쉬운 */
 .description span {
-  color: #95b75c;
+	color: #95b75c;
 }
 
 /* 시작하기 버튼 */
 .btn-box {
-  text-align: center;
-  margin-bottom: 20px;
+	text-align: center;
 }
 .btn-box button {
-  font-family: "NanumSquareNeoExtra";
-  font-size: 25px;
-  text-align: center;
-  padding: 10px 0;
+	font-family: "NanumSquareNeoExtra";
+	font-size: 2vw;
+	text-align: center;
+	padding: 1vw 0;
 
-  width: 250px;
+	width: 30vw;
 
-  background: rgba(149, 183, 92, 0.45);
-  border-radius: 44px;
-  border: none;
+	background: rgba(149, 183, 92, 0.45);
+	border-radius: 44px;
+	border: none;
 }
 
-/* 일단해봄 */
+/* 시작버튼 호버 */
 .btn-box button:hover {
-  background: rgba(122, 150, 75, 0.45);
+	background: rgba(122, 150, 75, 0.45);
 }
 
 /* STEP 묶음 */
 .steps {
-  font-weight: 600;
+	font-weight: 600;
 
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 /* STEP 박스 하나 */
 .step {
-  /* 박스 크기 안줄어들게 */
-  flex-shrink: 0;
+	width: 20vw;
+	height: 25vw;
+	margin: 3vw 2vw;
 
-  width: 200px;
-  height: 250px;
-  margin: 20px;
-  padding-bottom: 10px;
+	text-align: center;
 
-  text-align: center;
-
-  background: rgba(217, 217, 217, 0.25);
+	background: rgba(217, 217, 217, 0.25);
 }
 
-/* STEP 설명 밑에 여백 */
 .step > div {
-  padding: 20px;
+	/* STEP 박스 내부 패딩 */
+	padding: 1.5vw;
+	width: 20vw;
+	font-size: 1.5vw;
 }
 
 /* STEP 이미지 크기 */
 .step-img {
-  width: 150px;
-  height: 100px;
+	width: 15vw;
+	height: 10vw;
 }
 
 /* STEP 설명 */
 .step-desc {
-  font-family: "NanumSquareNeo";
-  white-space: pre-line; /* 개행 문자를 인식하여 줄바꿈 */
-  word-wrap: break-word; /* 긴 단어가 넘치지 않도록 줄바꿈 */
-  overflow-wrap: break-word; /* 긴 단어가 넘치지 않도록 줄바꿈 */
+	white-space: pre-line; /* 개행 문자를 인식하여 줄바꿈 */
+	word-wrap: break-word; /* 긴 단어가 넘치지 않도록 줄바꿈 */
+	overflow-wrap: break-word; /* 긴 단어가 넘치지 않도록 줄바꿈 */
 }
 
 /* 이미지 드래그 방지 */
 .main-component img {
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+	user-drag: none;
+}
+
+/* File */
+/* 파일첨부 화면 */
+.file-import-component {
+	margin: auto;
+}
+
+/* 로고를 제외한 요소들 */
+.file-import-component .file-box {
+  margin-top: 10vw;
+	display: flex;
+	flex-direction: column; /* 수직 정렬 */
+	align-items: center; /* 수평 중앙 정렬 */
+	justify-content: center; /* 수직 중앙 정렬 */
+	text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+/* 파일 불러오기, 드래그 박스 */
+.file-import-component .open-finder,
+.drag-file {
+	margin: 1.5vw 0; /* 상하 여백 설정 */
+	border-radius: 106px; /* 모서리 둥글게 설정 */
+	width: 40vw;
+	height: 15vw;
+
+	font-size: 2vw;
+
+	display: flex;
+	flex-direction: column; /* 수직 정렬 */
+	align-items: center; /* 수평 중앙 정렬 */
+	justify-content: center; /* 수직 중앙 정렬 */
+}
+
+/* 파일 불러오기 박스 */
+.file-import-component .open-finder {
+	background: rgba(149, 183, 92, 0.45);
+}
+
+/* 파일 불러오기 폰트 */
+.file-import-component .open-finder div:first-child {
+	font-family: "NanumSquareNeoExtra";
+	font-size: 3.5vw;
+}
+
+/* 드래그 박스 */
+.file-import-component .drag-file {
+	border: 1px solid #c1bbbb;
+}
+
+/* 드래그 박스 드래그중 배경색 */
+.file-import-component .dragging {
+	background-color: #dbdbdb;
+}
+
+/* 파일 첨부 input 숨김 */
+.file-import-component input {
+	display: none;
 }

@@ -1,20 +1,22 @@
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import logo from "assets/images/logo.png";
+
 import step1 from "assets/images/step1.JPG";
 import step2 from "assets/images/step2.JPG";
 import step3 from "assets/images/step3.JPG";
+import LogoComponent from "components/Logo/LogoComponent";
 
 // MainComponent 컴포넌트
 const MainComponent = () => {
   const navigate = useNavigate();
 
-  const goToStart = () => {
+  const handelClick = () => {
     navigate("/file");
   };
 
-  // Step 데이터
+  /**
+   * STEP 데이터
+   */
   const stepsData = [
     {
       step: "STEP 1",
@@ -35,16 +37,12 @@ const MainComponent = () => {
 
   return (
     <div className='main-component'>
-      <div className='title'>
-        <img className='logo' src={logo} alt='Logo' />
-        <div>이지피지</div>
-        <div>Easy Peasy</div>
-      </div>
+      <LogoComponent />
       <div className='description'>
         서비스기획자/PM을 위한 <span>세상 쉬운</span> 상세계획서 작성 툴
       </div>
       <div className='btn-box'>
-        <button className='start-btn' onClick={goToStart}>
+        <button className='start-btn' onClick={handelClick}>
           시작하기
         </button>
       </div>
