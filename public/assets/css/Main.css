@@ -63,7 +63,7 @@
 .main-component .logo div:last-child {
 	font-size: 2.5vw;
 }
-.description {
+.main-component .description {
 	font-size: 2vw;
 	margin: 3vw auto;
 	text-align: center;
@@ -71,15 +71,15 @@
 }
 
 /* 세상 쉬운 */
-.description span {
+.main-component .description span {
 	color: #95b75c;
 }
 
 /* 시작하기 버튼 */
-.btn-box {
+.main-component .btn-box {
 	text-align: center;
 }
-.btn-box button {
+.main-component .btn-box button {
 	font-family: "NanumSquareNeoExtra";
 	font-size: 2vw;
 	text-align: center;
@@ -93,12 +93,12 @@
 }
 
 /* 시작버튼 호버 */
-.btn-box button:hover {
+.main-component .btn-box button:hover {
 	background: rgba(122, 150, 75, 0.45);
 }
 
 /* STEP 묶음 */
-.steps {
+.main-component .steps {
 	font-weight: 600;
 
 	display: flex;
@@ -106,7 +106,7 @@
 }
 
 /* STEP 박스 하나 */
-.step {
+.main-component .step {
 	width: 20vw;
 	height: 25vw;
 	margin: 3vw 2vw;
@@ -116,7 +116,7 @@
 	background: rgba(217, 217, 217, 0.25);
 }
 
-.step > div {
+.main-component .step > div {
 	/* STEP 박스 내부 패딩 */
 	padding: 1.5vw;
 	width: 20vw;
@@ -124,13 +124,13 @@
 }
 
 /* STEP 이미지 크기 */
-.step-img {
+.main-component .step-img {
 	width: 15vw;
 	height: 10vw;
 }
 
 /* STEP 설명 */
-.step-desc {
+.main-component .step-desc {
 	white-space: pre-line; /* 개행 문자를 인식하여 줄바꿈 */
 	word-wrap: break-word; /* 긴 단어가 넘치지 않도록 줄바꿈 */
 	overflow-wrap: break-word; /* 긴 단어가 넘치지 않도록 줄바꿈 */
