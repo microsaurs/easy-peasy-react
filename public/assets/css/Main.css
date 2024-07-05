@@ -1,0 +1,126 @@
+@import url("font.css");
+
+.main-component {
+  margin: 100px auto;
+  width: 800px;
+}
+
+/* 로고 + 프로젝트명 */
+.title {
+  font-family: "NanumSquareNeoExtra";
+  text-align: center;
+  margin: auto;
+  position: relative;
+  width: 250px;
+}
+
+/* 로고 */
+.logo {
+  width: 40px;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+}
+
+/* 한제 */
+.title div:nth-child(2) {
+  font-size: 40px;
+}
+
+/* 영제 */
+.title div:last-child {
+  font-size: 30px;
+}
+
+/* 설명 */
+.description {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 30px auto;
+  text-align: center;
+  width: 500px;
+}
+
+/* 세상 쉬운 */
+.description span {
+  color: #95b75c;
+}
+
+/* 시작하기 버튼 */
+.btn-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.btn-box button {
+  font-family: "NanumSquareNeoExtra";
+  font-size: 25px;
+  text-align: center;
+  padding: 10px 0;
+
+  width: 250px;
+
+  background: rgba(149, 183, 92, 0.45);
+  border-radius: 44px;
+  border: none;
+}
+
+/* 일단해봄 */
+.btn-box button:hover {
+  background: rgba(122, 150, 75, 0.45);
+}
+
+/* STEP 묶음 */
+.steps {
+  font-weight: 600;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* STEP 박스 하나 */
+.step {
+  /* 박스 크기 안줄어들게 */
+  flex-shrink: 0;
+
+  width: 200px;
+  height: 250px;
+  margin: 20px;
+  padding-bottom: 10px;
+
+  text-align: center;
+
+  background: rgba(217, 217, 217, 0.25);
+}
+
+/* STEP 설명 밑에 여백 */
+.step > div {
+  padding: 20px;
+}
+
+/* STEP 이미지 크기 */
+.step-img {
+  width: 150px;
+  height: 100px;
+}
+
+/* STEP 설명 */
+.step-desc {
+  font-family: "NanumSquareNeo";
+  white-space: pre-line; /* 개행 문자를 인식하여 줄바꿈 */
+  word-wrap: break-word; /* 긴 단어가 넘치지 않도록 줄바꿈 */
+  overflow-wrap: break-word; /* 긴 단어가 넘치지 않도록 줄바꿈 */
+}
+
+/* 이미지 드래그 방지 */
+.main-component img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
