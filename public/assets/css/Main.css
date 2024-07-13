@@ -158,20 +158,25 @@
 
 /* 로고를 제외한 요소들 */
 .file-import-component .file-box {
-  margin-top: 10vw;
+	margin-top: 10vw;
 	display: flex;
 	flex-direction: column; /* 수직 정렬 */
 	align-items: center; /* 수평 중앙 정렬 */
 	justify-content: center; /* 수직 중앙 정렬 */
 	text-align: center; /* 텍스트 중앙 정렬 */
+	
+}
+
+.file-import-component .file-box > div:nth-child(1) {
+	text-align: left;
+	width: 60vw;
 }
 
 /* 파일 불러오기, 드래그 박스 */
 .file-import-component .open-finder,
 .drag-file {
 	margin: 1.5vw 0; /* 상하 여백 설정 */
-	border-radius: 106px; /* 모서리 둥글게 설정 */
-	width: 40vw;
+	width: 60vw;
 	height: 15vw;
 
 	font-size: 2vw;
@@ -182,20 +187,21 @@
 	justify-content: center; /* 수직 중앙 정렬 */
 }
 
-/* 파일 불러오기 박스 */
+/* 파일 불러오기 박스 색상 */
 .file-import-component .open-finder {
 	background: rgba(149, 183, 92, 0.45);
 }
 
-/* 파일 불러오기 폰트 */
-.file-import-component .open-finder div:first-child {
+/* 파일 불러오기, 파일 끌어오기 폰트 */
+.file-import-component .open-finder div:first-child, .drag-file div:first-child {
 	font-family: "NanumSquareNeoExtra";
 	font-size: 3.5vw;
+	margin-bottom: 1vw;
 }
 
-/* 드래그 박스 */
+/* 드래그 박스 테두리 */
 .file-import-component .drag-file {
-	border: 1px solid #c1bbbb;
+	border: 1px dashed #c1bbbb;
 }
 
 /* 드래그 박스 드래그중 배경색 */
@@ -208,18 +214,44 @@
 	display: none;
 }
 
-
 /* Service */
 .service-component {
 	text-align: center;
 }
 
+.service-component .content {
+	display: flex;
+}
+
+.service-component .content .canvas-box {
+	text-align: left;
+}
+
 /* 팝업창 */
 .pop-up > div {
-	border: 1px black solid;
-	position:absolute; top:0; left:0; right:0; bottom:0;
+	border: 1px #d9d9d9 solid;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	background-color: white;
+	border-radius: 8px;
 	width: 50vw;
-	height: 20vw;
+	height: 15vw;
 	margin: auto;
+	box-shadow: 0 1vw 2vw #d9d9d9;
+}
+
+.blurred {
+	filter: blur(5px);
+	pointer-events: none; /* 클릭 방지 */
+}
+
+.pop-up {
+	display: none;
+}
+
+.pop-up.visible {
+	display: block;
 }
