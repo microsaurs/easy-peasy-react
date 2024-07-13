@@ -23,16 +23,16 @@ const ServiceComponent = () => {
 		setCanvas(newCanvas);
 
 		// 이미지 위치 및 크기 정보 저장 이벤트 핸들러
-		newCanvas.on('object:modified', (e) => {
+		newCanvas.on("object:modified", (e) => {
 			const obj = e.target;
-			if (obj && obj.type === 'image') {
+			if (obj && obj.type === "image") {
 				const properties = {
 					left: obj.left,
 					top: obj.top,
 					scaleX: obj.scaleX,
 					scaleY: obj.scaleY,
 				};
-				localStorage.setItem('imageProperties', JSON.stringify(properties));
+				localStorage.setItem("imageProperties", JSON.stringify(properties));
 			}
 		});
 
@@ -52,12 +52,12 @@ const ServiceComponent = () => {
 					left: 0,
 					top: 0,
 				});
-				
+
 				// 이미지의 초기 크기를 설정하고 종횡비 유지
 				imgInstance.scaleToWidth(200);
-				
+
 				// 로컬 스토리지에서 이미지 위치 및 크기 불러오기
-				const savedProperties = JSON.parse(localStorage.getItem('imageProperties'));
+				const savedProperties = JSON.parse(localStorage.getItem("imageProperties"));
 				if (savedProperties) {
 					imgInstance.set({
 						left: savedProperties.left,
@@ -101,8 +101,16 @@ const ServiceComponent = () => {
 		<div className="service-component">
 			<LogoComponent />
 			<div className="canvas-box">
-				<input className="file-name" type="text" placeholder="파일명을 설정하세요" />
-				<canvas className="canvas" style={{ border: "1px solid black" }} ref={canvasRef} />
+				<input
+					className="file-name"
+					type="text"
+					placeholder="파일명을 설정하세요"
+				/>
+				<canvas
+					className="canvas"
+					style={{ border: "1px solid black" }}
+					ref={canvasRef}
+				/>
 				<img
 					className="img"
 					ref={imgRef} // Set the ref for img element
@@ -110,6 +118,24 @@ const ServiceComponent = () => {
 					style={{ display: "none" }}
 				/>
 				<div className="setting-box">
+					<div></div>
+				</div>
+			</div>
+			<div className="pop-up">
+				<div className="info">
+					<div>ⅹ</div>
+					<div>정의가 필요한 영역을 드래그 해보세요!</div>
+					<div>오른쪽 툴박스를 통해 테두리 색상과 두께를 바꿀 수 있습니다</div>
+				</div>
+				<div className="extension" style={{display:'none'}}>
+					<div>ⅹ</div>
+					<div>확장자를 먼저 선택한 후에 내보내기가 가능합니다</div>
+				</div>
+				<div className="export" style={{display:'none'}}>
+					<div>ⅹ</div>
+					<div>이미지 작업이 완료되었습니다!<br />한 장 더 작업하시겠어요?</div>
+					<div>네!</div>
+					<div>아니오</div>
 				</div>
 			</div>
 		</div>

@@ -207,3 +207,19 @@
 .file-import-component input {
 	display: none;
 }
+
+
+/* Service */
+.service-component {
+	text-align: center;
+}
+
+/* 팝업창 */
+.pop-up > div {
+	border: 1px black solid;
+	position:absolute; top:0; left:0; right:0; bottom:0;
+	background-color: white;
+	width: 50vw;
+	height: 20vw;
+	margin: auto;
+}

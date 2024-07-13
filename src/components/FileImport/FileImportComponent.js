@@ -27,7 +27,7 @@ const FileImportComponent = () => {
         const { fileName } = data;
 
         // 페이지 이동 전 localStorage 비우기
-        localStorage.clear();
+        localStorage.removeItem("imageProperties");
 
         // 페이지 이동 시 파일 이름을 state로 전달
         navigate("/service", { state: { fileName } });
