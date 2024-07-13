@@ -7,6 +7,10 @@ const FileImportComponent = () => {
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
   const dragFileRef = useRef(null);
+  const popUpRef = useRef(null);  // Ref for pop-up div
+  const contentRef = useRef(null); // Ref for content div
+  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+  const [popupTimer, setPopupTimer] = useState(null); // Timer reference for automatic popup close
 
   /**
    * 파일 업로드 처리 함수
@@ -28,6 +32,7 @@ const FileImportComponent = () => {
 
         // 페이지 이동 전 localStorage 비우기
         localStorage.removeItem("imageProperties");
+        localStorage.removeItem("hasShownPopup");
 
         // 페이지 이동 시 파일 이름을 state로 전달
         navigate("/service", { state: { fileName } });
@@ -41,8 +46,15 @@ const FileImportComponent = () => {
    * 파일 선택 및 드롭 처리 함수
    */
   const handleFile = (file) => {
+    const allowedExtensions = ['jpg', 'jpeg', 'png']; // 허용된 확장자 목록
+
     if (file) {
-      onUpload(file);
+      const fileExtension = file.name.split('.').pop().toLowerCase();
+      if (allowedExtensions.includes(fileExtension)) {
+        onUpload(file);
+      } else {
+        showUnsupportedFilePopup(); // 지원하지 않는 파일 확장자의 경우 팝업 표시
+      }
     }
   };
 
@@ -69,12 +81,60 @@ const FileImportComponent = () => {
     fileInputRef.current.click();
   };
 
+  /**
+   * 지원하지 않는 파일 확장자에 대한 팝업을 표시하는 함수
+   */
+  const showUnsupportedFilePopup = () => {
+    setShowPopup(true);
+    // 배경 블러 처리
+    if (contentRef.current) {
+      contentRef.current.classList.add("blurred");
+    }
+    if (popUpRef.current) {
+      popUpRef.current.classList.add("visible");
+    }
+
+    // 5초 후 자동으로 팝업 닫기
+    const timer = setTimeout(() => {
+      setShowPopup(false);
+      if (contentRef.current) {
+        contentRef.current.classList.remove("blurred");
+      }
+      if (popUpRef.current) {
+        popUpRef.current.classList.remove("visible");
+      }
+      setPopupTimer(null);
+    }, 5000);
+
+    setPopupTimer(timer);
+  };
+
+  /**
+   * 팝업 닫기 함수
+   */
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    if (contentRef.current) {
+      contentRef.current.classList.remove("blurred");
+    }
+    if (popUpRef.current) {
+      popUpRef.current.classList.remove("visible");
+    }
+    if (popupTimer) {
+      clearTimeout(popupTimer); // 자동 닫기 타이머 정리
+      setPopupTimer(null);
+    }
+  };
+
   return (
     <div className="file-import-component">
       <LogoComponent />
-      <div className="file-box">
+      <div className="file-box" ref={contentRef}>
+        <div>
+          🧚 이지피지는 한 번에 한 장씩만 작업이 가능해요
+        </div>
         <div className="open-finder" onClick={handleClick}>
-          <div>👀 이미지 불러오기</div>
+          <div>이미지 불러오기</div>
           <div>jpg, png, ~ 파일을 불러오세요</div>
         </div>
         <div
@@ -84,7 +144,8 @@ const FileImportComponent = () => {
           onDragLeave={(e) => handleDragAndDrop(e, false)}
           onDrop={handleDragAndDrop}
         >
-          파일을 여기로 끌어오시는 것도 가능해요!
+          <div>이미지 끌어오기</div>
+          <div>이미지를 이 곳으로 끌어오세요</div>
         </div>
         <input
           type="file"
@@ -93,6 +154,15 @@ const FileImportComponent = () => {
           ref={fileInputRef}
           style={{ display: "none" }}
         />
+      </div>
+      {/* 팝업 */}
+      <div className="pop-up" ref={popUpRef}>
+        {showPopup && (
+          <div className="sorry">
+            <div className="close-btn" onClick={handleClosePopup}>ⅹ</div>
+            <div>죄송합니다. 지원하고 있지 않은 확장자입니다</div>
+          </div>
+        )}
       </div>
     </div>
   );
