@@ -26,6 +26,9 @@ const FileImportComponent = () => {
         const data = response.data;
         const { fileName } = data;
 
+        // 페이지 이동 전 localStorage 비우기
+        localStorage.clear();
+
         // 페이지 이동 시 파일 이름을 state로 전달
         navigate("/service", { state: { fileName } });
       } catch (error) {

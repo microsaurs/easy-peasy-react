@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
 import { useLocation } from "react-router-dom";
 import * as fabric from "fabric";
+import LogoComponent from "components/Logo/LogoComponent";
 
 const ServiceComponent = () => {
 	const location = useLocation();
 	const [fileName, setFileName] = useState("");
 	const canvasRef = useRef(null);
-	const imgRef = useRef(null);  // Add ref for img element
+	const imgRef = useRef(null); // Add ref for img element
 	const [canvas, setCanvas] = useState();
 
 	useEffect(() => {
@@ -17,10 +17,24 @@ const ServiceComponent = () => {
 
 		// 캔버스 생성
 		const newCanvas = new fabric.Canvas(canvasRef.current, {
-			width: 800,
-			height: 400,
+			width: 500,
+			height: 600,
 		});
 		setCanvas(newCanvas);
+
+		// 이미지 위치 및 크기 정보 저장 이벤트 핸들러
+		newCanvas.on('object:modified', (e) => {
+			const obj = e.target;
+			if (obj && obj.type === 'image') {
+				const properties = {
+					left: obj.left,
+					top: obj.top,
+					scaleX: obj.scaleX,
+					scaleY: obj.scaleY,
+				};
+				localStorage.setItem('imageProperties', JSON.stringify(properties));
+			}
+		});
 
 		// 언마운트 시 캔버스 정리
 		return () => {
@@ -38,7 +52,37 @@ const ServiceComponent = () => {
 					left: 0,
 					top: 0,
 				});
+				
+				// 이미지의 초기 크기를 설정하고 종횡비 유지
 				imgInstance.scaleToWidth(200);
+				
+				// 로컬 스토리지에서 이미지 위치 및 크기 불러오기
+				const savedProperties = JSON.parse(localStorage.getItem('imageProperties'));
+				if (savedProperties) {
+					imgInstance.set({
+						left: savedProperties.left,
+						top: savedProperties.top,
+						scaleX: savedProperties.scaleX,
+						scaleY: savedProperties.scaleY,
+					});
+				} else {
+					// 이미지 중앙 위치 계산
+					const centerX = (canvas.width - imgInstance.getScaledWidth()) / 2;
+					const centerY = (canvas.height - imgInstance.getScaledHeight()) / 2;
+
+					imgInstance.set({
+						left: centerX,
+						top: centerY,
+					});
+				}
+
+				// 이미지가 드래그 가능하도록 설정
+				imgInstance.set({
+					hasControls: true,
+					hasBorders: true,
+					selectable: true,
+				});
+
 				canvas.add(imgInstance);
 				canvas.renderAll();
 			};
@@ -47,24 +91,27 @@ const ServiceComponent = () => {
 			if (imgElement.complete) {
 				onLoad();
 			} else {
-				imgElement.addEventListener('load', onLoad);
-				return () => imgElement.removeEventListener('load', onLoad);
+				imgElement.addEventListener("load", onLoad);
+				return () => imgElement.removeEventListener("load", onLoad);
 			}
 		}
 	}, [fileName, canvas]);
 
 	return (
-		<div>
-			<h1>서비스 이미지</h1>
-			<p>파일 이름: {fileName}</p>
-			<canvas style={{ border: "1px solid black" }} ref={canvasRef} />
-			<img
-				className="img"
-				ref={imgRef}  // Set the ref for img element
-				src={`http://localhost:8080/load?fileName=${fileName}`}
-				alt="image from spring"
-				style={{ display: "none" }}
-			/>
+		<div className="service-component">
+			<LogoComponent />
+			<div className="canvas-box">
+				<input className="file-name" type="text" placeholder="파일명을 설정하세요" />
+				<canvas className="canvas" style={{ border: "1px solid black" }} ref={canvasRef} />
+				<img
+					className="img"
+					ref={imgRef} // Set the ref for img element
+					src={`http://localhost:8080/load?fileName=${fileName}`}
+					style={{ display: "none" }}
+				/>
+				<div className="setting-box">
+				</div>
+			</div>
 		</div>
 	);
 };
