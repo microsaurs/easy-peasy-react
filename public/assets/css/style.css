@@ -1,8 +1,10 @@
 @import url("font.css");
 
+/* 전체 적용 */
 * {
 	font-family: "NanumSquareNeo";
 	box-sizing: border-box;
+
 	/* 글자 드래그 방지 */
 	-webkit-touch-callout: none;
 	user-select: none;
@@ -11,69 +13,73 @@
 	-webkit-user-select: none;
 }
 
-/* Logo */
-/* 로고 박스 */
+/* 로고 */
 .logo {
+	margin-top: 2vw;
+	margin-left: 1vw;
 	text-align: center;
 	position: relative;
-	margin-top: 2vw;
-	margin-left: 2vw;
-	width: 12vw;
+	width: 13vw;
 	color: black;
 }
+/* 로고 커서 포인터 */
 .logo:hover {
 	cursor: pointer;
 }
 
-/* 로고 이미지 */
+/* 로고 내부 이미지 */
 .logo img {
-	width: 3vw;
+	width: 2.5vw;
+
+	/* logo 시작점 기준으로 이미지 위치 조정 */
 	position: absolute;
 	top: -1vw;
-	left: -1.5vw;
+	left: 0.4vw;
 }
 
 /* 프젝명 - 한 */
 .logo div:nth-child(2) {
 	font-family: "NanumSquareNeoExtra";
-	font-size: 2.5vw;
+	font-size: 2vw;
 }
 
 /* 프젝명 - 영 */
 .logo div:last-child {
 	font-family: "NanumSquareNeoBold";
-	font-size: 2vw;
+	font-size: 1.5vw;
 }
 
 /* Main */
-
-/* 첫화면 로고 위치 및 사이즈 조정 */
+/* 첫화면 로고 */
 .logo-main {
-	margin: 10vw auto auto auto;
+	margin: 8vw auto auto auto;
 	width: 20vw;
 }
+/* 로고 이미지 크기 및 위치 조정 */
 .logo-main img {
 	width: 3.5vw;
 	top: -1vw;
 	left: 1vw;
 }
+/* 프젝명 - 한 글씨 크기 */
 .logo-main div:nth-child(2) {
-	font-size: 3vw;
+	font-size: 2.8vw;
 }
+/* 프젝명 - 영 글씨 크기 */
 .logo-main div:last-child {
-	font-size: 2.5vw;
+	font-size: 2.3vw;
 }
 
+/* Main */
 /* 첫화면 */
 .main-component {
-	margin: auto;
+	text-align: center;
 }
-
 /* 서비스 설명 */
 .main-component .description {
-	font-size: 2vw;
-	margin: 3vw auto;
-	text-align: center;
+	font-size: 1.8vw; /* 설명 글씨 크기 */
+	margin: 2vw auto; /* 상하 여백 */
+	text-align: center; /* 글씨 가운데정렬 */
 	width: 50vw;
 }
 
@@ -83,17 +89,12 @@
 }
 
 /* 시작하기 버튼 */
-.main-component .btn-box {
-	text-align: center;
-}
-.main-component .btn-box button {
+.main-component .start-btn {
 	font-family: "NanumSquareNeoExtra";
-	font-size: 2vw;
+	font-size: 1.6vw;
 	text-align: center;
 	padding: 1vw 0;
-
-	width: 30vw;
-
+	width: 25vw;
 	background: rgba(149, 183, 92, 0.45);
 	border-radius: 44px;
 	border: none;
@@ -106,7 +107,7 @@
 
 /* STEP 묶음 */
 .main-component .steps {
-	font-weight: 600;
+	font-weight: 600; /* 폰트 두께 */
 
 	display: flex;
 	justify-content: center;
@@ -114,34 +115,29 @@
 
 /* STEP 박스 하나 */
 .main-component .step {
-	width: 20vw;
-	height: 25vw;
-	margin: 3vw 2vw;
-
-	text-align: center;
+	width: 15vw;
+	height: 20vw;
+	margin: 2vw 1.8vw;
 
 	background: rgba(217, 217, 217, 0.25);
-}
 
-/* STEP 박스 내부 패딩 */
-.main-component .step > div {
-	padding: 1.5vw;
-	width: 20vw;
-	font-size: 1.5vw;
-}
-
-/* STEP 이미지 크기 */
-.main-component .step-img {
-	width: 15vw;
-	height: 10vw;
-}
-
-/* STEP 설명 */
-.main-component .step-desc {
 	white-space: pre-line; /* 개행 문자를 인식하여 줄바꿈 */
 	word-wrap: break-word; /* 긴 단어가 넘치지 않도록 줄바꿈 */
 	overflow-wrap: break-word; /* 긴 단어가 넘치지 않도록 줄바꿈 */
 }
+
+/* STEP 박스 내부 패딩 , 글자 사이즈 */
+.main-component .step > div {
+	padding: 1vw;
+	font-size: 1.3vw;
+}
+
+/* STEP 이미지 크기 */
+.main-component .step-img {
+	width: 12vw;
+	height: 9vw;
+}
+
 
 /* 이미지 드래그 방지 */
 .main-component img {
@@ -160,33 +156,36 @@
 /* File */
 /* 파일첨부 화면 */
 .file-import-component {
-	margin: auto;
+	margin: 5vw auto; /* 상하 여백 */
 }
 
 /* 로고를 제외한 요소들 */
 .file-import-component .file-box {
-	margin-top: 10vw;
 	display: flex;
 	flex-direction: column; /* 수직 정렬 */
 	align-items: center; /* 수평 중앙 정렬 */
 	justify-content: center; /* 수직 중앙 정렬 */
 	text-align: center; /* 텍스트 중앙 정렬 */
-	
 }
 
+/* 내부 요소 너비 */
+.file-import-component .file-box > div {
+	width: 50vw;
+}
+
+/* 안내문구 좌측정렬, 폰트사이즈 */
 .file-import-component .file-box > div:nth-child(1) {
 	text-align: left;
-	width: 60vw;
+	font-size: 1.5vw;
 }
 
 /* 파일 불러오기, 드래그 박스 */
 .file-import-component .open-finder,
 .drag-file {
-	margin: 1.5vw 0; /* 상하 여백 설정 */
-	width: 60vw;
-	height: 15vw;
+	margin: 1vw 0;
+	height: 12vw;
 
-	font-size: 2vw;
+	font-size: 1.8vw;
 
 	display: flex;
 	flex-direction: column; /* 수직 정렬 */
@@ -200,9 +199,10 @@
 }
 
 /* 파일 불러오기, 파일 끌어오기 폰트 */
-.file-import-component .open-finder div:first-child, .drag-file div:first-child {
+.file-import-component .open-finder div:first-child,
+.drag-file div:first-child {
 	font-family: "NanumSquareNeoExtra";
-	font-size: 3.5vw;
+	font-size: 2.5vw;
 	margin-bottom: 1vw;
 }
 
@@ -221,6 +221,54 @@
 	display: none;
 }
 
+/* 팝업창 */
+/* 팝업 기본 안보임 */
+.pop-up {
+	display: none;
+	font-size: 1.8vw;
+}
+/* 팝업 보임 */
+.pop-up.visible {
+	display: block;
+}
+
+.pop-up > div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto; /* 화면 중앙에 위치하려면 margin 필수 */
+
+	border: 1px #d9d9d9 solid;
+	background-color: white;
+	border-radius: 8px;
+	width: 50vw;
+	height: 15vw;
+	box-shadow: 0 1vw 2vw #d9d9d9;
+
+}
+
+.pop-up .close-btn {
+	text-align: right;
+	margin-right: 1vw;
+	margin-top: 1vw;
+}
+
+.pop-up .msg {
+	text-align: center;
+	
+}
+
+
+.blurred {
+	filter: blur(5px);
+	pointer-events: none; /* 팝업이 떴을 때 클릭 방지 */
+}
+
+
+
+
 /* Service */
 .service-component {
 	text-align: center;
@@ -232,33 +280,4 @@
 
 .service-component .content .canvas-box {
 	text-align: left;
-}
-
-/* 팝업창 */
-.pop-up > div {
-	border: 1px #d9d9d9 solid;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: white;
-	border-radius: 8px;
-	width: 50vw;
-	height: 15vw;
-	margin: auto;
-	box-shadow: 0 1vw 2vw #d9d9d9;
-}
-
-.blurred {
-	filter: blur(5px);
-	pointer-events: none; /* 클릭 방지 */
-}
-
-.pop-up {
-	display: none;
-}
-
-.pop-up.visible {
-	display: block;
 }
