@@ -19,6 +19,10 @@
 	margin-top: 2vw;
 	margin-left: 2vw;
 	width: 12vw;
+	color: black;
+}
+.logo:hover {
+	cursor: pointer;
 }
 
 /* 로고 이미지 */
@@ -42,27 +46,30 @@
 }
 
 /* Main */
+
+/* 첫화면 로고 위치 및 사이즈 조정 */
+.logo-main {
+	margin: 10vw auto auto auto;
+	width: 20vw;
+}
+.logo-main img {
+	width: 3.5vw;
+	top: -1vw;
+	left: 1vw;
+}
+.logo-main div:nth-child(2) {
+	font-size: 3vw;
+}
+.logo-main div:last-child {
+	font-size: 2.5vw;
+}
+
 /* 첫화면 */
 .main-component {
 	margin: auto;
 }
 
-/* 첫화면 로고 위치 및 사이즈 조정 */
-.main-component .logo {
-	margin: 10vw auto auto auto;
-	width: 20vw;
-}
-.main-component .logo img {
-	width: 3.5vw;
-	top: -1vw;
-	left: 1vw;
-}
-.main-component .logo div:nth-child(2) {
-	font-size: 3vw;
-}
-.main-component .logo div:last-child {
-	font-size: 2.5vw;
-}
+/* 서비스 설명 */
 .main-component .description {
 	font-size: 2vw;
 	margin: 3vw auto;
@@ -116,8 +123,8 @@
 	background: rgba(217, 217, 217, 0.25);
 }
 
+/* STEP 박스 내부 패딩 */
 .main-component .step > div {
-	/* STEP 박스 내부 패딩 */
 	padding: 1.5vw;
 	width: 20vw;
 	font-size: 1.5vw;

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import step1 from "assets/images/step1.JPG";
 import step2 from "assets/images/step2.JPG";
 import step3 from "assets/images/step3.JPG";
-import LogoComponent from "components/Logo/LogoComponent";
 
 // MainComponent 컴포넌트
 const MainComponent = () => {
@@ -37,7 +36,6 @@ const MainComponent = () => {
 
   return (
     <div className='main-component'>
-      <LogoComponent />
       <div className='description'>
         서비스기획자/PM을 위한 <span>세상 쉬운</span> 상세계획서 작성 툴
       </div>

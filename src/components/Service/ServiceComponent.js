@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
 import * as fabric from "fabric";
-import LogoComponent from "components/Logo/LogoComponent";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const ServiceComponent = () => {
   const location = useLocation();
@@ -208,7 +207,6 @@ const ServiceComponent = () => {
 
   return (
     <div className="service-component">
-      <LogoComponent />
       <div className="content" ref={contentRef}>
         <div className="canvas-box">
           <input

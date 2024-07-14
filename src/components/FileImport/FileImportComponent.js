@@ -1,7 +1,6 @@
-import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import LogoComponent from "components/Logo/LogoComponent";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FileImportComponent = () => {
   const navigate = useNavigate();
@@ -128,7 +127,6 @@ const FileImportComponent = () => {
 
   return (
     <div className="file-import-component">
-      <LogoComponent />
       <div className="file-box" ref={contentRef}>
         <div>
           🧚 이지피지는 한 번에 한 장씩만 작업이 가능해요
