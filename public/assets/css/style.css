@@ -116,7 +116,7 @@
 /* STEP 박스 하나 */
 .main-component .step {
 	width: 15vw;
-	height: 20vw;
+	height: 35vh;
 	margin: 2vw 1.8vw;
 
 	background: rgba(217, 217, 217, 0.25);
@@ -135,7 +135,7 @@
 /* STEP 이미지 크기 */
 .main-component .step-img {
 	width: 12vw;
-	height: 9vw;
+	height: 15vh;
 }
 
 
@@ -183,7 +183,7 @@
 .file-import-component .open-finder,
 .drag-file {
 	margin: 1vw 0;
-	height: 12vw;
+	height: 25vh;
 
 	font-size: 1.8vw;
 
@@ -222,62 +222,90 @@
 }
 
 /* 팝업창 */
-/* 팝업 기본 안보임 */
 .pop-up {
-	display: none;
+	display: none; /* 기본 안보임 */
 	font-size: 1.8vw;
-}
-/* 팝업 보임 */
-.pop-up.visible {
-	display: block;
-}
-
-.pop-up > div {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto; /* 화면 중앙에 위치하려면 margin 필수 */
-
+	position: fixed; /* fixed로 변경하여 화면 중앙에 위치 */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* 화면 중앙에 위치 */
 	border: 1px #d9d9d9 solid;
 	background-color: white;
 	border-radius: 8px;
 	width: 50vw;
-	height: 15vw;
 	box-shadow: 0 1vw 2vw #d9d9d9;
+	padding: 2vw; /* 내부 패딩 추가 */
+	z-index: 1000; /* 다른 요소들보다 위에 표시 */
+  }
+  
+  /* 팝업 보임 */
+  .pop-up.visible {
+	display: block;
+  }
 
-}
-
-.pop-up .close-btn {
+  /* 팝업닫기 */
+  .pop-up .close-btn {
 	text-align: right;
-	margin-right: 1vw;
-	margin-top: 1vw;
-}
-
-.pop-up .msg {
+	font-size: 1.5vw;
+	position: absolute;
+	top: 1vw;
+	right: 1vw;
+  }
+  /* 팝업 메시지 */
+  .pop-up .msg {
 	text-align: center;
-	
-}
-
-
-.blurred {
+	margin-top: 2vw; /* 여백을 추가하여 내용물의 높이를 조정 */
+	padding-bottom: 1vw;
+  }
+  /* 팝업시 배경 흐림 */
+  .blurred {
 	filter: blur(5px);
 	pointer-events: none; /* 팝업이 떴을 때 클릭 방지 */
-}
+  }
+  
 
 
 
 
 /* Service */
 .service-component {
+	margin: 5vw auto;
 	text-align: center;
+	width: 80%;
 }
 
+/* 캔버스와 세팅박스 */
 .service-component .content {
 	display: flex;
+	justify-content: space-between;
 }
 
-.service-component .content .canvas-box {
+/* 이미지 파일명 왼쪽정렬 */
+.service-component .canvas-box {
 	text-align: left;
+	flex-basis: 80%;
+	display: flex;
+	flex-direction: column;
+
+}
+
+.service-component .setting-box {
+	flex-basis: 20%;
+	border-left: 1px solid black;
+}
+
+.service-component .file-name {
+	font-size: 1.5vw;
+	margin: 1vw;
+	border: none;
+}
+
+.service-component .file-name:focus {
+	outline: none;
+}
+
+.service-component .canvas {
+	width: 50%;
+	height: 80vh;
+
 }
