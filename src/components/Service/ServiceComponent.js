@@ -69,16 +69,19 @@ const ServiceComponent = () => {
 					</div>
 					<div className="setting-thick">
 						<div>테두리 두께</div>
-						<input type="number" min={1} />
+						<div>
+							<label htmlFor="thickness">너비</label>
+							<input id="thickness" type="number" min={1} />
+						</div>
 					</div>
 					<div className="setting-extension">
 						<div>내보내기</div>
 						<div>
-							<div>jpg</div>
-							<div>png</div>
-							<div>pdf</div>
+							<div className="extensions">jpg</div>
+							<div className="extensions">png</div>
+							<div className="extensions">pdf</div>
+							<div>선택하신 확장자로 내보내기</div>
 						</div>
-						<div>선택하신 확장자로 내보내기</div>
 					</div>
 				</div>
 			</div>

@@ -12,6 +12,14 @@
 	-ms-user-select: none;
 	-webkit-user-select: none;
 }
+html, body {
+	width: 100%;
+	height: 100%;
+  }
+  #root {
+	width: 100%;
+	height: 100%;
+  }
 
 /* 로고 */
 .logo {
@@ -116,7 +124,7 @@
 /* STEP 박스 하나 */
 .main-component .step {
 	width: 15vw;
-	height: 35vh;
+	height: 20vw;
 	margin: 2vw 1.8vw;
 
 	background: rgba(217, 217, 217, 0.25);
@@ -135,7 +143,7 @@
 /* STEP 이미지 크기 */
 .main-component .step-img {
 	width: 12vw;
-	height: 15vh;
+	height: 9vw;
 }
 
 
@@ -183,7 +191,7 @@
 .file-import-component .open-finder,
 .drag-file {
 	margin: 1vw 0;
-	height: 25vh;
+	height: 12vw;
 
 	font-size: 1.8vw;
 
@@ -278,6 +286,7 @@
 .service-component .content {
 	display: flex;
 	justify-content: space-between;
+	width: 100%;
 }
 
 /* 이미지 파일명 왼쪽정렬 */
@@ -292,6 +301,7 @@
 .service-component .setting-box {
 	flex-basis: 20%;
 	border-left: 1px solid black;
+	align-items: center;
 }
 
 .service-component .file-name {
@@ -305,7 +315,46 @@
 }
 
 .service-component .canvas {
-	width: 50%;
-	height: 80vh;
+	width: 60%;
+	aspect-ratio: 1 / 1;
+	
+}
 
+.service-component .setting-box {
+	width: 100%;
+	padding-left: 2vw;
+	font-size: 1.5vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.service-component .setting-box > div {
+	width: 100%;
+}
+
+.service-component .setting-box > div > div:first-child {
+	background-color: #d9d9d9;
+	text-align: left;
+	border: 1px solid black;
+}
+
+.service-component .setting-thick input[type=number] {
+	width: 5vw;
+	
+}
+
+.service-component .setting-thick input[type=number]:focus {
+	outline: none;
+
+}
+
+.service-component .setting-box .setting-extension > div:last-child div{
+
+	border-radius: .2vw;
+	border: 1px solid black;
+}
+
+.service-component .setting-box .extensions {
+	font-size: 1vw;
+	width: 3vw;
 }
